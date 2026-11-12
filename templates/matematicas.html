@@ -1,0 +1,28 @@
+
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mate - EDU NOVA</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head><body>
+<nav><div class="logo">EDU NOVA • {{ usuario }} • MATE</div><div class="links"><a href="/dashboard">DASHBOARD</a><a href="/lengua">LENGUA</a><a class="active" href="/matematicas">MATE</a><a href="/videos">VIDEOS</a><a href="/juegos">JUEGOS</a><a href="/examen">EXAMEN</a><a href="/logout">SALIR</a></div></nav>
+<div style="max-width:1300px; margin:0 auto; padding:20px">
+<h1 class="mega">Matemáticas<br>sin miedo.</h1>
+<p class="sub">De fracciones a álgebra. Explicado como si fuera historia, con ejemplos de dinero real, videojuegos y Veracruz.</p>
+
+<div class="grid2">
+<div class="card card-lime"><span class="badge" style="background:black; color:white">MÓDULO 1 • ÁLGEBRA</span><h2 style="font-size:36px; margin:10px 0">¿Qué es X? La caja misteriosa</h2>
+<div class="explicacion"><b>X es una caja que no sabes qué tiene.</b><br>Si te digo: 2 cajas + 3 pesos = 11 pesos. ¿Cuánto hay en cada caja?<br>2 cajas = 11-3 = 8 → 1 caja = 4. ¡X=4!<br><br><b>Ecuación 1er grado:</b> 5x -10 =15 → 5x=25 → x=5<br><b>2do grado:</b> x² -5x+6=0 → Busca dos números que multiplicados den 6 y sumados -5 → -2 y -3 → (x-2)(x-3)=0 → x=2 o x=3</div>
+<p><b>Reto concurso:</b> Si 3x + 6 = 21, ¿X?</p><div style="display:flex; gap:8px"><input id="x1" class="input" placeholder="Tu respuesta"><button class="btn" onclick="if(document.getElementById('x1').value==5){alert('¡Crack! +15'); puntos+=15; actualizarPuntos();} else{alert('Pista: 3x=15');}">Comprobar</button></div>
+</div>
+
+<div class="card"><span class="badge">MÓDULO 2 • FRACCIONES Y DECIMALES</span><h2 style="font-size:36px; margin:10px 0">Fracciones: Pizza y dinero</h2>
+<div class="explicacion"><b>Fracción = parte de algo.</b><br>3/4 de pizza = 3 rebanadas de 4.<br>Suma con mismo denominador: 1/4 +2/4=3/4<br>Distinto denominador: 1/2+1/3=3/6+2/6=5/6<br>Multiplicación: 1/2 * 3/4=3/8<br>División: 1/2 ÷ 3/4 =1/2 *4/3=4/6=2/3<br><b>Decimal:</b> 1/2=0.5, 1/4=0.25, 3/4=0.75</div>
+<p><b>Problema real:</b> Tienes $1200, gastas 1/3 en tenis, 1/4 en juegos. ¿Cuánto te queda? → 1/3=400, 1/4=300, gastas 700, quedan 500.</p>
+<button class="btn btn-white" onclick="alert('Tip: Convierte todo a decimal si te confundes. 1/3≈0.33')">Tip rápido</button>
+</div>
+</div>
+
+<div class="grid3" style="margin-top:20px">
+<div class="card card-orange"><h2>3. Geometría</h2><p><b>Perímetro:</b> Suma lados.<br><b>Área:</b><br>- Cuadrado: l²<br>- Rectángulo: b*h<br>- Triángulo: b*h/2<br>- Círculo: πr² (π≈3.14)<br><b>Volumen:</b><br>- Cubo: l³<br>- Prisma: área base * altura<br>- Cilindro: πr²*h</p><div class="explicacion" style="background:white; color:black"><b>Ejemplo:</b> Tu salón 8m x6m → Área 48m². Si mide 3m alto → Volumen 144m³. Necesitas 144m³ de aire.</div></div>
+<div class="card"><h2>4. Porcentajes e Interés</h2><p><b>Porcentaje:</b> Parte de 100.<br>15% de 1200 =1200*0.15=180<br>¿Descuento? 1200-180=1020 pagas.<br><br><b>Interés simple:</b> 1000 al 10% mensual → mes 1: 1100, mes 2: 1200<br><b>Interés compuesto:</b> 1000 al 10% compuesto → mes1:1100, mes2:1210 (1100*1.1)</p><div class="explicacion"><b>Truco:</b> 10% = divide entre 10. 50% = mitad. 25% = cuarta parte.</div></div>
+<div class="card card-black"><h2>5. Probabilidad</h2><p><b>Probabilidad = casos que quieres / casos totales</b><br>Moneda: cara 1/2=50%<br>Dado: sacar 6 → 1/6≈16%<br>Baraja: sacar as →4/52=1/13<br><br><b>Ejemplo concurso:</b> Bolsa con 3 rojas, 2 azules, 5 verdes. Prob. roja =3/10=30%</p><button class="btn btn-lime" onclick="alert('Prob. de reprobar si no estudias: 9/10 =90% 😅')">Chiste</button></div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/juegos.js') }}"></script>
+</body></html>

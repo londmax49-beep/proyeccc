@@ -1,0 +1,30 @@
+ 
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lengua - EDU NOVA</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head><body>
+<nav><div class="logo">EDU NOVA • {{ usuario }} • LENGUA</div><div class="links"><a href="/dashboard">DASHBOARD</a><a class="active" href="/lengua">LENGUA</a><a href="/matematicas">MATE</a><a href="/videos">VIDEOS</a><a href="/juegos">JUEGOS</a><a href="/examen">EXAMEN</a><a href="/logout">SALIR</a></div></nav>
+<div style="max-width:1300px; margin:0 auto; padding:20px 20px">
+<h1 class="mega">Lengua y<br>Comunicación.</h1>
+<p class="sub">Módulo completo para secundaria y prepa. Incluye teoría, ejemplos de Veracruz, actividades interactivas y trucos para el concurso.</p>
+
+<div class="grid2" style="margin-top:20px">
+<div class="card card-violet"><span class="badge" style="background:white; color:black">MÓDULO 1 • 40 MIN</span><h2 style="font-size:38px; margin:10px 0">1. La Comunicación: Más que hablar</h2>
+<div class="explicacion"><b>Modelo de Shannon y Weaver completo:</b><br><b>Emisor:</b> Codifica la idea. <b>Receptor:</b> Decodifica. <b>Mensaje:</b> Contenido. <b>Código:</b> Español, emojis, señas. <b>Canal:</b> Aire, WhatsApp, papel. <b>Ruido:</b> Bulla, mala señal, prejuicios. <b>Contexto:</b> Lugar cultural. <b>Retroalimentación:</b> Respuesta.</div>
+<p style="margin-top:12px"><b>Ejemplo viral:</b> Tú haces un meme de la Sec. Tec. 3 (emisor), el chiste del profe (mensaje), usas español + imagen (código), lo mandas por Instagram (canal), hay mala señal (ruido), tu amigo está en clase (contexto) y te responde con jajaja (retroalimentación).</p>
+<div class="card" style="background:#fff; color:black; margin-top:12px; box-shadow:4px 4px 0 black"><b>Funciones del lenguaje (Jakobson):</b><br>1. Referencial: "Hoy llueve". 2. Emotiva: "¡Estoy feliz!". 3. Conativa: "¡Haz la tarea!". 4. Fática: "¿Me escuchas?". 5. Poética: "Tus ojos, dos luceros". 6. Metalingüística: "Verbo es acción".</div>
+<button class="btn btn-white" onclick="alert('Actividad: Identifica función en: Oye, ¿me oyes? → Fática')">Mini Quiz</button>
+</div>
+
+<div class="card"><span class="badge">MÓDULO 2 • 50 MIN</span><h2 style="font-size:38px; margin:10px 0">2. Tipos de Texto: Clave del concurso</h2>
+<div class="explicacion"><b>El jurado siempre pregunta esto:</b><br><b>Narrativo:</b> Personajes + Inicio-Nudo-Desenlace. Ej: "Había una vez una jarocha...". Verbos en pasado.<br><b>Descriptivo:</b> Adjetivos. "El Tajín, imponente, húmedo, místico".<br><b>Expositivo:</b> Objetivo, datos, definiciones. "La fotosíntesis es...".<br><b>Argumentativo:</b> TESIS + 3 ARGUMENTOS + CONCLUSIÓN. "Debería haber menos tarea porque...".<br><b>Instructivo:</b> Pasos numerados, imperativo. "1. Corta, 2. Pega".<br><b>Dialogado:</b> Guiones. "-Hola -Hola".</div>
+<p style="margin-top:10px"><b>Truco para identificar rápido:</b> Busca verbos. ¿Imperativo? Instructivo. ¿Pasado + personajes? Narrativo. ¿Datos + es/son? Expositivo.</p>
+<label>Actividad: Escribe un instructivo corto</label><textarea id="textoInst" class="input" rows="3" placeholder="Ej: Para hacer picaditas..."></textarea><button class="btn" onclick="let t=document.getElementById('textoInst').value.toLowerCase(); if(t.includes('corta')||t.includes('pon')||t.includes('haz')) alert('¡Bien! Usaste imperativo, es instructivo +10 pts'); else alert('Usa verbos como CORTA, PON, HAZ'); puntos+=10; actualizarPuntos();">Revisar</button>
+</div>
+</div>
+
+<div class="grid3" style="margin-top:20px">
+<div class="card card-lime"><h2>3. Gramática que sí sirve</h2><p><b>Sustantivo:</b> Persona, animal, cosa. Ej: Veracruz, libro, jarocha.<br><b>Verbo:</b> Acción. Correr, estudiar, ganar.<br><b>Adjetivo:</b> Cualidad. Inteligente, azul, rápido.<br><b>Adverbio:</b> Cómo, cuándo, dónde. Rápidamente, ayer, aquí.<br><b>Pronombre:</b> Yo, tú, él, nosotros.</p><div class="explicacion"><b>Ejemplo concurso:</b> "La jarocha canta hermosamente en el zócalo" → Sust: jarocha, zócalo. Verbo: canta. Adj: La. Adv: hermosamente.</div></div>
+<div class="card"><h2>4. Figuras Literarias</h2><p><b>Metáfora:</b> Comparación sin "como". "Tus ojos son el mar".<br><b>Símil:</b> Con "como". "Tus ojos como el mar".<br><b>Hipérbole:</b> Exageración. "Te esperé mil años".<br><b>Personificación:</b> Cosa con cualidad humana. "El viento llora".<br><b>Aliteración:</b> Sonido repetido. "El ruido rueda".</p><button class="btn btn-white" onclick="window.location.href='/juegos'">Practicar en Juegos →</button></div>
+<div class="card card-black"><h2>5. Ortografía mortal</h2><p><b>B/V:</b> -aba, -abas, -ava. Estaba, cantaba.<br><b>H:</b> Hie-, Hue-, Hum-. Hielo, huevo.<br><b>G/J:</b> -aje, -eje. Viaje, garaje (excepto garage).<br><b>LL/Y:</b> Llave, yate.<br><b>Tildes:</b> Agudas terminan n,s,vocal. Graves no. Esdrújulas siempre.</p><p style="margin-top:10px; font-size:13px; opacity:.8">Tip concurso: Si dudas, busca palabra primitiva. Ej: viaje → viajar.</p></div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/juegos.js') }}"></script>
+</body></html>

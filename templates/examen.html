@@ -1,0 +1,53 @@
+ 
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Examen - EDU NOVA</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head><body>
+<nav><div class="logo">EDU NOVA • {{ usuario }} • EXAMEN FINAL</div><div class="links"><a href="/dashboard">DASHBOARD</a><a href="/lengua">LENGUA</a><a href="/matematicas">MATE</a><a href="/videos">VIDEOS</a><a href="/juegos">JUEGOS</a><a class="active" href="/examen">EXAMEN</a><a href="/logout">SALIR</a></div></nav>
+<div style="max-width:950px; margin:0 auto; padding:20px">
+<h1 class="mega">Examen Final.</h1><p class="sub">10 preguntas, 5 de Lengua y 5 de Mate. Al aprobar 6/10 obtienes diploma oficial con tu nombre y puntaje guardado en Python y JS.</p>
+
+<div class="card" style="margin-top:18px">
+<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px"><h2>Alumno: {{ usuario }}</h2><div class="badge">INTENTOS ILIMITADOS • GUARDA PUNTOS</div></div>
+
+<div style="margin-top:18px">
+<p><b>1. LENGUA:</b> ¿Cuál es el CANAL si dos amigos hablan en el patio?</p><label><input type="radio" name="p1" value="1"> A) El aire (ondas sonoras)</label><br><label><input type="radio" name="p1" value="0"> B) El mensaje</label>
+</div>
+
+<div style="margin-top:14px"><p><b>2. MATE:</b> 3x + 6 = 21 → ¿X?</p><label><input type="radio" name="p2" value="1"> A) 5</label><br><label><input type="radio" name="p2" value="0"> B) 7</label></div>
+
+<div style="margin-top:14px"><p><b>3. LENGUA:</b> "Primero corta la cebolla, luego fríe" es texto:</p><label><input type="radio" name="p3" value="1"> A) Instructivo</label><br><label><input type="radio" name="p3" value="0"> B) Narrativo</label></div>
+
+<div style="margin-top:14px"><p><b>4. MATE:</b> Área de rectángulo de 10m x 4m</p><label><input type="radio" name="p4" value="1"> A) 40 m²</label><br><label><input type="radio" name="p4" value="0"> B) 14 m²</label></div>
+
+<div style="margin-top:14px"><p><b>5. LENGUA:</b> "Tus ojos son dos luceros" es:</p><label><input type="radio" name="p5" value="1"> A) Metáfora</label><br><label><input type="radio" name="p5" value="0"> B) Hipérbole</label></div>
+
+<div style="margin-top:14px"><p><b>6. MATE:</b> 15% de 1200</p><label><input type="radio" name="p6" value="1"> A) 180</label><br><label><input type="radio" name="p6" value="0"> B) 150</label></div>
+
+<div style="margin-top:14px"><p><b>7. LENGUA:</b> Función de "¡Haz la tarea!"</p><label><input type="radio" name="p7" value="1"> A) Conativa (apelativa)</label><br><label><input type="radio" name="p7" value="0"> B) Referencial</label></div>
+
+<div style="margin-top:14px"><p><b>8. MATE:</b> Probabilidad de sacar 6 en dado</p><label><input type="radio" name="p8" value="1"> A) 1/6</label><br><label><input type="radio" name="p8" value="0"> B) 1/2</label></div>
+
+<div style="margin-top:14px"><p><b>9. LENGUA:</b> Sustantivo en "La jarocha canta"</p><label><input type="radio" name="p9" value="1"> A) jarocha</label><br><label><input type="radio" name="p9" value="0"> B) canta</label></div>
+
+<div style="margin-top:14px"><p><b>10. MATE:</b> 1/2 + 1/4 =</p><label><input type="radio" name="p10" value="1"> A) 3/4</label><br><label><input type="radio" name="p10" value="0"> B) 2/6</label></div>
+
+<br><button class="btn" onclick="calificar()">CALIFICAR Y GENERAR DIPLOMA →</button>
+<div id="diploma" style="display:none; margin-top:24px; border:6px double black; padding:28px; text-align:center; background:var(--lime); box-shadow:8px 8px 0 black">
+<h1 style="font-size:54px">DIPLOMA DE HONOR</h1><p style="font-size:18px; margin-top:12px">Otorgado a</p><h2 style="font-size:48px; margin:10px 0" id="nombreDip">{{ usuario }}</h2><p id="textoDip" style="font-size:18px"></p><p style="margin-top:16px; font-size:12px">EDU NOVA • CONCURSO 2026 • VERACRUZ • Firma del profe ___________</p><br><button class="btn" onclick="window.print()">IMPRIMIR DIPLOMA</button> <button class="btn btn-white" onclick="location.reload()">INTENTAR OTRA VEZ</button>
+</div>
+</div>
+
+<div class="card card-black" style="margin-top:16px"><h3>¿Cómo te califican?</h3><p style="font-size:14px; margin-top:8px">0-5: Estudia videos y juegos.<br>6-7: Bien, puedes mejorar.<br>8-9: ¡Muy bien! Nivel concurso.<br>10/10: ¡Genio! Pide que te dejen exponer primero, impresionas al jurado.</p></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/juegos.js') }}"></script>
+<script>
+function calificar(){
+  let t=0; for(let i=1;i<=10;i++){ let r=document.querySelector(`input[name=p${i}]:checked`); if(r) t+=parseInt(r.value); }
+  puntos = t*10 + puntos; actualizarPuntos();
+  let dip=document.getElementById('diploma'); dip.style.display='block';
+  let mensaje = t>=6 ? `¡APROBADO con ${t}/10!` : `Estudia un poco más, sacaste ${t}/10`;
+  document.getElementById('textoDip').innerHTML=`${mensaje}<br>Has obtenido <b>${puntos} puntos totales</b> en la plataforma.<br>Fecha: ${new Date().toLocaleDateString()}<br>Proyecto EDU NOVA - HTML+CSS+JS+PYTHON`;
+  dip.scrollIntoView({behavior:'smooth'});
+  fetch('/api/guardar_puntos',{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({puntos: puntos})});
+}
+</script>
+</body></html>
