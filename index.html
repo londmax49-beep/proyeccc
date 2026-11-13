@@ -1,0 +1,21 @@
+Index.html 
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>EDU NOVA - Login</title><link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}"></head><body>
+<div class="marquee"><span>EDU NOVA • LENGUA + MATEMÁTICAS • HTML + CSS + JS + PYTHON FLASK • JUEGOS INTERACTIVOS • CONCURSO 2026 • EDU NOVA • LENGUA + MATEMÁTICAS • HTML + CSS + JS + PYTHON FLASK • JUEGOS INTERACTIVOS • CONCURSO 2026 • </span></div>
+<div style="max-width:1250px; margin:0 auto; padding:30px 20px">
+<div class="grid2">
+<div><span class="badge">PROYECTO COMPLETO 2026</span><h1 class="mega">Entra.<br>Aprende.<br><i>Gana.</i></h1><p class="sub">Plataforma con login real en Python Flask, 5 materias, 6 juegos interactivos en JS, videos de YouTube y Khan Academy, examen con diploma imprimible y leaderboard.</p>
+<div class="card card-lime" style="margin-top:20px"><h3>¿Qué incluye?</h3><ul style="margin:12px 0 0 18px; font-size:15px"><li><b>Python app.py</b> con 7 rutas, API de puntos y base de datos en memoria</li><li><b>6 HTML</b> con contenido largo y didáctico</li><li><b>CSS brutalista</b> con animaciones y responsive</li><li><b>JS</b> con 6 juegos que guardan progreso</li><li><b>Videos</b> embebidos + links externos</li><li><b>Usuario:</b> admin / 1234 para demo</li></ul></div>
+<div class="card card-black" style="margin-top:16px"><p style="font-size:13px">Total usuarios registrados: <b>{{ total_usuarios }}</b> • Hecho para ganar concurso secundaria/prepa Veracruz</p></div>
+</div>
+<div class="card"><span class="badge" style="background:black; color:white">ACCESO DE USUARIO</span><h2 style="font-size:38px; margin:14px 0">Inicia sesión</h2>
+{% with messages = get_flashed_messages() %}{% if messages %}<div class="explicacion">{% for m in messages %}{{ m }}<br>{% endfor %}</div>{% endif %}{% endwith %}
+<form method="POST" id="authForm">
+<label>Usuario (mínimo 3 letras)</label><input name="user" id="user" class="input" placeholder="Ej: valeria23" required>
+<label>Contraseña</label><input name="pass" id="pass" type="password" class="input" placeholder="••••••••" required>
+<label>Escuela / Grado</label><div class="grid2" style="gap:8px"><input name="escuela" class="input" placeholder="Sec. Tec 3"><input name="grado" class="input" placeholder="2° Secundaria"></div>
+<div style="display:flex; gap:10px; margin-top:14px"><button type="submit" formaction="/login" class="btn">ENTRAR →</button><button type="submit" formaction="/registro" class="btn btn-white">REGISTRARME</button></div>
+<p style="font-size:12px; opacity:.6; margin-top:12px">*Demo sin base de datos real, todo se guarda en memoria del servidor + localStorage del navegador. Perfecto para concurso.</p>
+</form>
+</div></div></div>
+<script>document.getElementById('authForm').addEventListener('submit',()=>{ localStorage.setItem('edu_session', document.getElementById('user').value); localStorage.setItem('edu_puntos','0'); });</script>
+</body></html>+++S
